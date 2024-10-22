@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package helloworld;
+
+// Service de salutation
+service Greeter {
+  // Méthode de salutation
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  // Méthode de streaming
+  rpc StreamGreetings (HelloRequest) returns (stream HelloReply) {}
+}
+
+// Message pour la requête
+message HelloRequest {
+  string name = 1;
+  string language = 2; // Langue choisie par l'utilisateur : "fr", "en", "ar"
+}
+
+// Message pour la réponse
+message HelloReply {
+  string message = 1; // Le message de salutation
+}
